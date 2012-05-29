@@ -1,0 +1,64 @@
+<html>
+<head>
+<script>
+
+var serverURL = "ws://white.cs.inf.shizuoka.ac.jp:10808/";
+var channel = "test";
+
+window.onload = function(){
+	var X = -1;
+	var Y = -1;
+	if(channel == "" || serverURL == ""){
+		document.getElementById('messageBar').innerHTML = '[ERROR] チャンネルもしくはURLが空です。';
+		return;
+	}
+	//背景を青に塗る
+	var ctx = document.getElementById('myCanvas').getContext('2d');
+	ctx.fillStyle = 'rgb(65, 65, 133)';
+	ctx.fillRect(0, 0, 678, 399);
+	
+	var webSocket = new WebSocket(serverURL);
+	webSocket.onopen = function(event){
+		document.getElementById('messageBar').innerHTML = '接続完了';
+		webSocket.send(channel + ':');
+	};
+
+        webSocket.onmessage = function(event){
+		var msg = event.data;
+		if(msg == channel + ";"){
+			document.getElementById('messageBar').innerHTML = 'ハンドシェイク完了';
+		}else if(msg.indexOf(channel + ":") == 0){
+			//メッセージはココで受信
+			//チャンネル削除
+			msg = msg.substring(msg.indexOf(":")+1);
+			//カンマで分けて配列へ
+			fields = msg.split(",");
+			//注：サーバから来たデータは文字列として扱われているため、
+			//数値を送った場合使用時はparseInt等で数値化する。
+			if(X > -1){
+				ctx.strokeStyle = 'rgb(254, 254, 254)';
+				ctx.beginPath();
+				ctx.moveTo(X, Y);
+				ctx.lineTo(parseInt(fields[0]), parseInt(fields[1]));
+				/* 三角形を線で描画 */
+				ctx.stroke();
+			}
+			X = parseInt(fields[0]);
+			Y = parseInt(fields[1]);
+		}else{
+			console.log(JSON.stringify(msg));
+		}
+	};
+
+	webSocket.onclose = function(event){
+		document.getElementById('time').innerHTML = 'socket closed';
+	};
+}
+
+</script>
+</head>
+<body>
+<div style="background:black;color:white;padding:3px;" id="messageBar">test</div>
+<canvas id="myCanvas" width="678" height="399"></canvas>
+</body>
+</html>

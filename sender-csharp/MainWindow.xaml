@@ -1,8 +1,13 @@
 ﻿<Window x:Class="sender_csharp.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        Title="MainWindow" Height="350" Width="525">
+        Title="MainWindow" Height="500" Width="700">
     <Grid>
-        
+        <Canvas Height="399" HorizontalAlignment="Left" Margin="0,38,0,0" Name="canvas1" VerticalAlignment="Top" Width="678" Background="#FF414185" MouseMove="canvas1_MouseMove" />
+        <TextBox Height="32" HorizontalAlignment="Right" Margin="0,0,422,0" Name="textBox1" VerticalAlignment="Top" Width="123" FontSize="24" />
+        <TextBlock Height="32" HorizontalAlignment="Left" Name="textBlock1" Text="チャンネル" VerticalAlignment="Top" Width="127" FontSize="24" TextAlignment="Center" />
+        <Button Height="32" HorizontalAlignment="Left" Margin="262,0,0,0" Name="button1" VerticalAlignment="Top" Width="148" Content="チャンネル登録" IsEnabled="False" Click="button1_Click" />
+        <TextBlock Height="31" HorizontalAlignment="Left" Margin="416,1,0,0" Name="textBlock2" Text="未接続" VerticalAlignment="Top" Width="262" FontSize="24" Background="#FFC7AEAE" />
+        <TextBlock Height="17" HorizontalAlignment="Left" Margin="0,443,0,0" Name="textBlock3" Text="" VerticalAlignment="Top" Width="678" />
     </Grid>
 </Window>

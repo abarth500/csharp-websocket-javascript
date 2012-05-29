@@ -1,0 +1,14 @@
+C:\Users\Shohei\Documents\csharp-websocket-javasciprt\sender-csharp\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\Shohei\Documents\csharp-websocket-javasciprt\sender-csharp\obj\x86\Debug\MainWindow.baml
+C:\Users\Shohei\Documents\csharp-websocket-javasciprt\sender-csharp\obj\x86\Debug\MainWindow.g.cs
+C:\Users\Shohei\Documents\csharp-websocket-javasciprt\sender-csharp\obj\x86\Debug\App.g.cs
+C:\Users\Shohei\Documents\csharp-websocket-javasciprt\sender-csharp\obj\x86\Debug\sender-csharp_MarkupCompile.cache
+C:\Users\Shohei\Documents\csharp-websocket-javasciprt\sender-csharp\obj\x86\Debug\sender-csharp.g.resources
+C:\Users\Shohei\Documents\csharp-websocket-javasciprt\sender-csharp\obj\x86\Debug\sender_csharp.Properties.Resources.resources
+C:\Users\Shohei\Documents\csharp-websocket-javasciprt\sender-csharp\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\Shohei\Documents\csharp-websocket-javasciprt\sender-csharp\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\Shohei\Documents\csharp-websocket-javasciprt\sender-csharp\bin\Debug\sender-csharp.exe
+C:\Users\Shohei\Documents\csharp-websocket-javasciprt\sender-csharp\bin\Debug\sender-csharp.pdb
+C:\Users\Shohei\Documents\csharp-websocket-javasciprt\sender-csharp\obj\x86\Debug\sender-csharp.exe
+C:\Users\Shohei\Documents\csharp-websocket-javasciprt\sender-csharp\obj\x86\Debug\sender-csharp.pdb
+C:\Users\Shohei\Documents\csharp-websocket-javasciprt\sender-csharp\bin\Debug\WebSocket4Net.dll
