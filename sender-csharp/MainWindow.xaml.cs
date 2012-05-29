@@ -22,9 +22,9 @@ namespace sender_csharp
     public partial class MainWindow : Window
     {
         //[要変更]ここにWebsocket プロキシサーバのURLをセットします。
-        private string serverURL = "ws://white.cs.inf.shizuoka.ac.jp:10808";
-        //[要変更]ここにチャンネル文字列をセットします
-        private string channel = "test";
+        private string serverURL = "";
+        //[要変更]ここにチャンネル文字列（半角英数字・ブラウザ側と同じ文字列）をセットします
+        private string channel = "";
 
         private WebSocket websocket;
         private bool ready = false;
