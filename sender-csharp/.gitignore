@@ -1,2 +1,2 @@
-sender-csharp/obj/*
-sender-csharp/bin/*
+obj/*
+bin/*
