@@ -2,47 +2,47 @@
 <head>
 <script>
 
-//[—v•ÏX]‚±‚±‚ÉWebsocket ƒvƒƒLƒVƒT[ƒo‚ÌURL‚ğƒZƒbƒg‚µ‚Ü‚·B
+//[è¦å¤‰æ›´]ã“ã“ã«Websocket ãƒ—ãƒ­ã‚­ã‚·ã‚µãƒ¼ãƒã®URLã‚’ã‚»ãƒƒãƒˆã—ã¾ã™ã€‚
 var serverURL = "";
-//[—v•ÏX]‚±‚±‚Éƒ`ƒƒƒ“ƒlƒ‹•¶š—ñi”¼Šp‰p”šEƒuƒ‰ƒEƒU‘¤‚Æ“¯‚¶•¶š—ñj‚ğƒZƒbƒg‚µ‚Ü‚·
+//[è¦å¤‰æ›´]ã“ã“ã«ãƒãƒ£ãƒ³ãƒãƒ«æ–‡å­—åˆ—ï¼ˆåŠè§’è‹±æ•°å­—ãƒ»ãƒ–ãƒ©ã‚¦ã‚¶å´ã¨åŒã˜æ–‡å­—åˆ—ï¼‰ã‚’ã‚»ãƒƒãƒˆã—ã¾ã™
 var channel = "";
 
 window.onload = function(){
 	var X = -1;
 	var Y = -1;
 	if(channel == "" || serverURL == ""){
-		document.getElementById('messageBar').innerHTML = '[ERROR] ƒ`ƒƒƒ“ƒlƒ‹‚à‚µ‚­‚ÍURL‚ª‹ó‚Å‚·B';
+		document.getElementById('messageBar').innerHTML = '[ERROR] ãƒãƒ£ãƒ³ãƒãƒ«ã‚‚ã—ãã¯URLãŒç©ºã§ã™ã€‚';
 		return;
 	}
-	//”wŒi‚ğÂ‚É“h‚é
+	//èƒŒæ™¯ã‚’é’ã«å¡—ã‚‹
 	var ctx = document.getElementById('myCanvas').getContext('2d');
 	ctx.fillStyle = 'rgb(65, 65, 133)';
 	ctx.fillRect(0, 0, 678, 399);
 	
 	var webSocket = new WebSocket(serverURL);
 	webSocket.onopen = function(event){
-		document.getElementById('messageBar').innerHTML = 'Ú‘±Š®—¹';
+		document.getElementById('messageBar').innerHTML = 'æ¥ç¶šå®Œäº†';
 		webSocket.send(channel + ':');
 	};
 
         webSocket.onmessage = function(event){
 		var msg = event.data;
 		if(msg == channel + ";"){
-			document.getElementById('messageBar').innerHTML = 'ƒnƒ“ƒhƒVƒFƒCƒNŠ®—¹';
+			document.getElementById('messageBar').innerHTML = 'ãƒãƒ³ãƒ‰ã‚·ã‚§ã‚¤ã‚¯å®Œäº†';
 		}else if(msg.indexOf(channel + ":") == 0){
-			//ƒƒbƒZ[ƒW‚ÍƒRƒR‚ÅóM
-			//ƒ`ƒƒƒ“ƒlƒ‹íœ
+			//ãƒ¡ãƒƒã‚»ãƒ¼ã‚¸ã¯ã‚³ã‚³ã§å—ä¿¡
+			//ãƒãƒ£ãƒ³ãƒãƒ«å‰Šé™¤
 			msg = msg.substring(msg.indexOf(":")+1);
-			//ƒJƒ“ƒ}‚Å•ª‚¯‚Ä”z—ñ‚Ö
+			//ã‚«ãƒ³ãƒã§åˆ†ã‘ã¦é…åˆ—ã¸
 			fields = msg.split(",");
-			//’FƒT[ƒo‚©‚ç—ˆ‚½ƒf[ƒ^‚Í•¶š—ñ‚Æ‚µ‚Äˆµ‚í‚ê‚Ä‚¢‚é‚½‚ßA
-			//”’l‚ğ‘—‚Á‚½ê‡g—p‚ÍparseInt“™‚Å”’l‰»‚·‚éB
+			//æ³¨ï¼šã‚µãƒ¼ãƒã‹ã‚‰æ¥ãŸãƒ‡ãƒ¼ã‚¿ã¯æ–‡å­—åˆ—ã¨ã—ã¦æ‰±ã‚ã‚Œã¦ã„ã‚‹ãŸã‚ã€
+			//æ•°å€¤ã‚’é€ã£ãŸå ´åˆä½¿ç”¨æ™‚ã¯parseIntç­‰ã§æ•°å€¤åŒ–ã™ã‚‹ã€‚
 			if(X > -1){
 				ctx.strokeStyle = 'rgb(254, 254, 254)';
 				ctx.beginPath();
 				ctx.moveTo(X, Y);
 				ctx.lineTo(parseInt(fields[0]), parseInt(fields[1]));
-				/* OŠpŒ`‚ğü‚Å•`‰æ */
+				/* ä¸‰è§’å½¢ã‚’ç·šã§æç”» */
 				ctx.stroke();
 			}
 			X = parseInt(fields[0]);
